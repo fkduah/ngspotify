@@ -1,11 +1,11 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { HttpModule } from '@angular/http';
+import { HttpModule} from '@angular/http';
 import { RouterModule }   from '@angular/router';
 
 
-// import { routing } from './app.routes';
+import { SpotifyService } from './services/spotify.service';
 
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
@@ -29,7 +29,7 @@ import { SearchComponent } from './components/search/search.component';
        {path: 'about', component: AboutComponent}
     ])
   ],
-  providers: [],
+  providers: [SpotifyService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
