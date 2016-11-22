@@ -12,6 +12,7 @@ import { AppComponent } from './app.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { AboutComponent } from './components/about/about.component';
 import { SearchComponent } from './components/search/search.component';
+import { ArtistComponent } from './components/artist/artist.component';
 
 import { Artist } from '../Artist';
 import { Album } from '../Album';
@@ -22,7 +23,8 @@ import { Album } from '../Album';
     SearchComponent,
     NavbarComponent,
     AboutComponent,
-    SearchComponent
+    SearchComponent,
+    ArtistComponent
   ],
   imports: [
     BrowserModule,
@@ -30,7 +32,8 @@ import { Album } from '../Album';
     HttpModule, 
      RouterModule.forRoot([
        {path: '', component: SearchComponent},
-       {path: 'about', component: AboutComponent}
+       {path: 'about', component: AboutComponent},
+       {path: 'artist/:id', component: ArtistComponent}
     ])
   ],
   providers: [SpotifyService, Artist, Album],
