@@ -5,12 +5,16 @@ import { HttpModule} from '@angular/http';
 import { RouterModule }   from '@angular/router';
 
 
+
 import { SpotifyService } from './services/spotify.service';
 
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { AboutComponent } from './components/about/about.component';
 import { SearchComponent } from './components/search/search.component';
+
+import { Artist } from '../Artist';
+import { Album } from '../Album';
 
 @NgModule({
   declarations: [
@@ -29,7 +33,7 @@ import { SearchComponent } from './components/search/search.component';
        {path: 'about', component: AboutComponent}
     ])
   ],
-  providers: [SpotifyService],
+  providers: [SpotifyService, Artist, Album],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
