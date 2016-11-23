@@ -12,7 +12,7 @@ import { ActivatedRoute } from '@angular/router'
 export class ArtistComponent implements OnInit {
   id:String;
   artist: Artist[];
-  album: Album[];
+  albums: Album[];
 
   constructor(private _spotifyservice: SpotifyService, private _route: ActivatedRoute  ) { }
 
@@ -24,6 +24,13 @@ export class ArtistComponent implements OnInit {
             .subscribe((artist)=>{
               this.artist = artist;
             })
+
+            this._spotifyservice.getAlbums(id)
+            .subscribe((albums)=>{
+              this.albums = albums.items;
+            })
+
+
         })
   }
 
