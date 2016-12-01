@@ -9,7 +9,9 @@ export class SpotifyService {
 
   private searchUrl: string;
   private artistUrl: string;
+  private albumsUrl: string;
   private albumUrl: string;
+  
 
   searchMusic(str:string, type='artist'){
     this.searchUrl = 'https://api.spotify.com/v1/search?q='+str+'&offset=0&limit=20&type='+type+'&market=US';
@@ -24,7 +26,13 @@ export class SpotifyService {
   }
 
   getAlbums(artistId:string){
-    this.albumUrl = 'https://api.spotify.com/v1/artists/'+artistId+'/albums';
+    this.albumsUrl = 'https://api.spotify.com/v1/artists/'+artistId+'/albums';
+    return this._http.get(this.albumsUrl)
+      .map(res => res.json());
+  }
+
+  getAlbum(id:string){
+    this.albumUrl = 'https://api.spotify.com/v1/albums/'+id;
     return this._http.get(this.albumUrl)
       .map(res => res.json());
   }
